@@ -48,4 +48,11 @@ public class MouthTest{
     assertEquals(0, mouth.toothCount());
   } 
 
+  @Test
+  public void canLoseTooth(){
+    mouth.growTooth(tooth);
+    mouth.loseTooth(tooth);
+    assertEquals(0, mouth.toothCount());
+  }
+
 }

@@ -39,4 +39,9 @@ public class Mouth{
     }
   }
 
+  public void loseTooth(Tooth tooth) {
+    int teeth = toothCount();
+    gums[teeth] = null;
+  }
+
 }
