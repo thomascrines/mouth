@@ -22,12 +22,21 @@ public class Mouth{
   }
 
   public void growTooth(Tooth tooth) {
+    if (fullCompliment()) {
+      return;
+    }
     int teeth = toothCount();
     gums[teeth] = tooth;
   }
 
   public boolean fullCompliment(){
     return toothCount() == gums.length;
+  }
+
+  public void dentalMishap(){
+    for (int i = 0; i < gums.length; i++) {
+      gums[i] = null;
+    }
   }
 
 }

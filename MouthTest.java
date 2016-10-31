@@ -28,11 +28,24 @@ public class MouthTest{
   }
 
   @Test
-  public void cantGrowTooMany(){
+  public void mouthHasRightNumberOfTeeth(){
     for (int i = 0; i < 32 ; i++){
       mouth.growTooth(tooth);
     }
     assertEquals(true, mouth.fullCompliment());
   }
+
+  @Test 
+  public void cantGrowExtras(){
+    for(int i = 0; i < 40; i++) mouth.growTooth(tooth);
+      assertEquals(32, mouth.toothCount());
+  }
+  
+  @Test
+  public void dentalMishapDestroysTeeth(){
+    mouth.growTooth(tooth);
+    mouth.dentalMishap();
+    assertEquals(0, mouth.toothCount());
+  } 
 
 }
