@@ -55,14 +55,38 @@ public class MouthTest{
     assertEquals(1, mouth.toothCount());
   }
 
+    @Test
+  public void canGetMolarBack(){
+    mouth.growTooth(molar);
+    Tooth tooth = mouth.removeTooth();
+    Molar original = (Molar) tooth;
+    assertEquals("chewing", original.function());
+  }
+
+  @Test
+  public void incisorHasHealth(){
+    assertEquals(100, incisor.health());
+  }
+
+  @Test
+  public void premolarHasCavities(){
+    assertEquals(0, premolar.cavities());
+  }
+
+  @Test
+  public void wisdomToothHasFillings(){
+    assertEquals(0, wisdomtooth.fillings());
+  }
+
+
   // @Test void healthCanGoDown(){
-  //   incisor.drinkCola();
+  //   mouth.drinkCola();
   //   assertEquals(80, incisor.health());
   // }
 
   // @Test
-  // public void canDescribeFunction(Incisor incisor){
-  //   assertEquals("My function is to bite.", incisor.describeFunction());
+  // public void canDescribeFunction(){
+  //   assertEquals("chewing", molar.describeFunction());
   // }
 
 }
