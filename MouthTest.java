@@ -32,27 +32,37 @@ public class MouthTest{
 
   @Test
   public void canGrowTeeth(){
-    mouth.growTooth(tooth);
+    mouth.growTooth(incisor);
     assertEquals(1, mouth.toothCount());
   }
   
   @Test
   public void dentalMishapDestroysTeeth(){
-    mouth.growTooth(tooth);
+    mouth.growTooth(incisor);
+    mouth.growTooth(canine);
+    mouth.growTooth(premolar);
+    mouth.growTooth(molar);
+    mouth.growTooth(wisdomtooth);
     mouth.dentalMishap();
     assertEquals(0, mouth.toothCount());
   } 
 
   @Test
   public void canLoseTooth(){
-    mouth.growTooth(tooth);
+    mouth.growTooth(incisor);
+    mouth.growTooth(canine);
     mouth.removeTooth();
-    assertEquals(0, mouth.toothCount());
+    assertEquals(1, mouth.toothCount());
   }
 
-  @Test void healthCanGoDown(){
-    incisor.drinkCoke();
-    assertEquals(80, incisor.health());
-  }
+  // @Test void healthCanGoDown(){
+  //   incisor.drinkCola();
+  //   assertEquals(80, incisor.health());
+  // }
+
+  // @Test
+  // public void canDescribeFunction(Incisor incisor){
+  //   assertEquals("My function is to bite.", incisor.describeFunction());
+  // }
 
 }

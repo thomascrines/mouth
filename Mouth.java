@@ -33,11 +33,15 @@ public class Mouth {
     return null;
   }
 
-  public int drinkCola(){
-     for ( Tooth tooth : gums ) {
-        (tooth.health() -= 20);
-    }
-  }
-  
+  // public int drinkCola(){
+  //    for ( Tooth tooth : gums ) {
+  //     return tooth.health() - 20;
+  //   }
+  //   return 100;
+  // }
+
+  // public String describeFunction(Tooth tooth){
+  //   return "My function is to " + tooth.function() + ".";
+  // }
 
 }
