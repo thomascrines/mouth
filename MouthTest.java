@@ -4,11 +4,20 @@ import org.junit.*;
 public class MouthTest{
   Mouth mouth;
   Tooth tooth;
+  Incisor incisor;
+  Canine canine;
+  Premolar premolar;
+  Molar molar;
+  WisdomTooth wisdomtooth;
 
   @Before
   public void before(){
     mouth = new Mouth("A Mouth");
-    tooth = new Tooth();
+    incisor = new Incisor();
+    canine = new Canine();
+    premolar = new Premolar();
+    molar = new Molar();
+    wisdomtooth = new WisdomTooth();
   }
 
   @Test
@@ -26,20 +35,6 @@ public class MouthTest{
     mouth.growTooth(tooth);
     assertEquals(1, mouth.toothCount());
   }
-
-  @Test
-  public void mouthHasRightNumberOfTeeth(){
-    for (int i = 0; i < 32 ; i++){
-      mouth.growTooth(tooth);
-    }
-    assertEquals(true, mouth.fullCompliment());
-  }
-
-  @Test 
-  public void cantGrowExtras(){
-    for(int i = 0; i < 40; i++) mouth.growTooth(tooth);
-      assertEquals(32, mouth.toothCount());
-  }
   
   @Test
   public void dentalMishapDestroysTeeth(){
@@ -48,11 +43,16 @@ public class MouthTest{
     assertEquals(0, mouth.toothCount());
   } 
 
-  // @Test
-  // public void canLoseTooth(){
-  //   mouth.growTooth(tooth);
-  //   mouth.loseTooth(tooth);
-  //   assertEquals(0, mouth.toothCount());
-  // }
+  @Test
+  public void canLoseTooth(){
+    mouth.growTooth(tooth);
+    mouth.removeTooth();
+    assertEquals(0, mouth.toothCount());
+  }
+
+  @Test void healthCanGoDown(){
+    incisor.drinkCoke();
+    assertEquals(80, incisor.health());
+  }
 
 }

@@ -1,10 +1,13 @@
-public class Mouth{
+import java.util.*;
+
+public class Mouth {
+
   private String name;
-  private Tooth[] gums;
+  private ArrayList<Tooth> gums;
 
   public Mouth(String name){
     this.name = name;
-    this.gums = new Tooth[32];
+    this.gums = new ArrayList<Tooth>();
   }
 
   public String getName(){
@@ -12,36 +15,29 @@ public class Mouth{
   }
 
   public int toothCount(){
-    int counter = 0;
-    for (Tooth tooth : gums) {
-      if (tooth != null){
-        counter ++;
-      }
-    }
-    return counter;
+    return this.gums.size();
   }
 
   public void growTooth(Tooth tooth) {
-    if (fullCompliment()) {
-      return;
-    }
-    int teeth = toothCount();
-    gums[teeth] = tooth;
-  }
-
-  public boolean fullCompliment(){
-    return toothCount() == gums.length;
+    this.gums.add(tooth);
   }
 
   public void dentalMishap(){
-    for (int i = 0; i < gums.length; i++) {
-      gums[i] = null;
-    }
+    this.gums.clear();
   }
 
-  // public void loseTooth(Tooth tooth) {
-  //   int teeth = toothCount();
-  //   gums[teeth] = null;
-  // }
+  public Tooth removeTooth(){
+    if (toothCount() > 0) {
+      return gums.remove(0);
+    }
+    return null;
+  }
+
+  public int drinkCola(){
+     for ( Tooth tooth : gums ) {
+        (tooth.health() -= 20);
+    }
+  }
+  
 
 }

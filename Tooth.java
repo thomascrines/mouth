@@ -1,7 +1,6 @@
-public class Tooth{
-  private Tooth[] cavities;
-}
-
-public tooth(){
-this.cavity = new Filling[1];
+public interface Tooth {
+  public int health();
+  public int cavities();
+  public int fillings();
+  public String function();
 }
